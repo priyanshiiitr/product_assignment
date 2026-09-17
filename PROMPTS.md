@@ -381,6 +381,16 @@ Note on timestamps: the harness did not expose exact clock times for each turn, 
 
 ---
 
+### [2026-09-17, message 32]
+
+> This is the asked format
+
+(Sent together with a screenshot of a submission portal requiring "one combined PDF containing all four artifacts," max 10MB.)
+
+**Outcome:** Worked — the actual submission format is a single combined PDF, not separate repo files/links as previously assumed. Built one (ONE_PAGER.md + PROMPTS.md + EVALS.md + app link/screenshot, in that order) using Python (markdown -> HTML -> PDF via xhtml2pdf), verified visually by rendering pages to images (caught and fixed a real bug along the way: a screenshot image had a zero-size placement rect due to an xhtml2pdf quirk with percentage-width images, fixed with explicit pixel dimensions). Final PDF is 16 pages, ~200KB, committed to the repo as Nubra_Submission_Priyansh_Agarwal.pdf.
+
+---
+
 ### [2026-09-17, message 10]
 
 > A
