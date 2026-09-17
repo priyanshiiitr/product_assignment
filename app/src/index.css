@@ -1,0 +1,492 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600&display=swap");
+
+:root {
+  --paper: #f6f1e7;
+  --card: #fffdf7;
+  --ink: #201a12;
+  --ink-soft: #574e3f;
+  --ink-faint: #8a8071;
+  --rule: #ddd2b8;
+  --loss: #8a3324;
+  --loss-bg: #f6e6df;
+  --gain: #2f5d4c;
+  --gain-bg: #e6efe9;
+  --amber: #a5680f;
+  --amber-bg: #f4e6cc;
+
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  color-scheme: light;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: var(--ink);
+}
+
+.app-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px 96px;
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 32px 16px 72px;
+  }
+}
+
+/* ---------- Intro / input screen ---------- */
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+}
+
+.intro h1 {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.intro-lede {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 40px;
+  max-width: 56ch;
+}
+
+.upload-box {
+  border: 1px solid var(--rule);
+  background: var(--card);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.upload-label {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.upload-hint {
+  font-size: 0.88rem;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+
+.btn {
+  font-size: 0.95rem;
+  padding: 10px 18px;
+  border-radius: 7px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  margin: 32px 0 20px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 560px) {
+  .sample-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sample-card {
+  text-align: left;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sample-card:hover {
+  border-color: var(--ink-soft);
+}
+
+.sample-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+}
+
+.sample-desc {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  line-height: 1.4;
+}
+
+/* ---------- Banners ---------- */
+
+.banner {
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+.banner-error {
+  background: var(--loss-bg);
+  border: 1px solid var(--loss);
+  color: var(--loss);
+}
+
+.banner-warn {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber);
+  color: var(--amber);
+}
+
+.banner-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.banner-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.banner-more {
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* ---------- Review document ---------- */
+
+.review-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.source-label {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+.review-title {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.review-period {
+  color: var(--ink-faint);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+.review-lede {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+
+.not-enough,
+.clean {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.habit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.habit-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.habit-header {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.habit-rank {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--ink-faint);
+  min-width: 1.5rem;
+}
+
+.habit-title {
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+
+.habit-cost {
+  font-size: 0.95rem;
+  color: var(--loss);
+  font-weight: 600;
+}
+
+.habit-explanation {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+
+/* ---------- Trade table ---------- */
+
+.trade-details {
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+}
+
+.trade-details summary {
+  cursor: pointer;
+  color: var(--ink-soft);
+  padding: 6px 0;
+}
+
+.trade-table-wrap {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.trade-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.trade-table th,
+.trade-table td {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+.pnl-neg {
+  color: var(--loss);
+}
+
+.pnl-pos {
+  color: var(--gain);
+}
+
+/* ---------- Rule + guardrail ---------- */
+
+.rule-box {
+  background: var(--paper);
+  border-left: 3px solid var(--ink);
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  border-radius: 0 6px 6px 0;
+}
+
+.rule-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
+
+.rule-text {
+  font-size: 0.98rem;
+}
+
+.guardrail-box {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+}
+
+.toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.toggle-on {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--card);
+  transition: transform 0.15s ease;
+}
+
+.toggle-on .toggle-knob {
+  transform: translateX(18px);
+}
+
+.guardrail-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.guardrail-desc {
+  font-size: 0.87rem;
+  color: var(--ink-faint);
+}
+
+.guardrail-note {
+  font-size: 0.8rem;
+  color: var(--amber);
+  margin-top: 6px;
+}
+
+/* ---------- What went well ---------- */
+
+.went-well {
+  background: var(--gain-bg);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.went-well-title {
+  font-size: 1.1rem;
+  color: var(--gain);
+  margin-bottom: 10px;
+}
+
+.went-well-text {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+/* ---------- Method + disclaimer ---------- */
+
+.method-details {
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+
+.method-details summary {
+  cursor: pointer;
+}
+
+.method-details p {
+  margin-top: 8px;
+  line-height: 1.55;
+}
+
+.disclaimer {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+  line-height: 1.5;
+}
