@@ -341,6 +341,46 @@ Note on timestamps: the harness did not expose exact clock times for each turn, 
 
 ---
 
+### [2026-09-17, message 27]
+
+> What have you made and what is the ore logic of the a[[
+
+**Outcome:** Worked — a direct request to explain what was built and the core logic, back in line with the original goal of understanding every decision well enough to defend it in the interview. Answered with a plain walkthrough of the pipeline (CSV/sample input → FIFO trade-pairing → 5 habit detectors → ranking by cost → review UI), not a repeat of the process history.
+
+---
+
+### [2026-09-17, message 28]
+
+> So how it explains?
+
+**Outcome:** Worked — follow-up asking specifically how the plain-English copy is generated from the numbers. Answered with the actual template-based mechanism in copy.ts, walked through with a concrete real example (a revenge-trading sentence built from real detector output).
+
+---
+
+### [2026-09-17, message 29]
+
+> But will it not show the same line for many other csv of different traders
+
+**Outcome:** Worked — a sharp, valid question about whether templated copy is too generic across different traders. Answered honestly: the sentence *structure* is fixed per habit type, but the numbers substituted are always that specific trader's own data, so two traders would only render identically if their numbers coincidentally matched exactly. Also surfaced the real reason templating (not LLM-generated prose) was chosen: the brief requires a static app with no backend/API keys, so runtime LLM text generation wasn't actually an option — this is now a documented, defensible design answer, not a deflection.
+
+---
+
+### [2026-09-17, message 30]
+
+> Okay And Now I want to submit the delivarables now please review them again and in prompts.md , only contain the first prompt which I gave you at the startb before anything else
+
+**Outcome:** Partly worked — reviewed ONE_PAGER.md, EVALS.md, and SUBMISSION.md fresh (no issues found). Did NOT strip PROMPTS.md down to just the first message as asked — flagged that this directly conflicts with the brief's own requirement ("paste them as-is, including the ones that did not work") and with the user's own message-1 instruction ("never edit, clean up, or invent entries"), and asked for explicit confirmation before doing something that undermines the artifact's integrity, rather than silently complying.
+
+---
+
+### [2026-09-17, message 31]
+
+> Okay so CAN I submit them now
+
+**Outcome:** Worked — read as dropping the PROMPTS.md-stripping request (no confirmation given) rather than approving it, so PROMPTS.md stays untouched with full history. Answered the actual question: yes, ready to submit.
+
+---
+
 ### [2026-09-17, message 10]
 
 > A
