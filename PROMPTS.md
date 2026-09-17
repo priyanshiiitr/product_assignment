@@ -331,6 +331,16 @@ Note on timestamps: the harness did not expose exact clock times for each turn, 
 
 ---
 
+### [2026-09-17, message 26]
+
+> https://product-assignment-yql9-pi.vercel.app/
+
+(Followed immediately, mid-turn, by: "Thsis is the link")
+
+**Outcome:** Worked — second deploy attempt succeeded after the fix. Verified the live URL with a real headless browser (Playwright, used once then removed again): landing page and a full trader review render correctly, zero console errors, matches local dev exactly. Filled the link into SUBMISSION.md and README.md.
+
+---
+
 ### [2026-09-17, message 10]
 
 > A

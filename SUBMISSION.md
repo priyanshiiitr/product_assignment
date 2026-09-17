@@ -10,7 +10,7 @@ See [PROMPTS.md](PROMPTS.md) — every message sent, verbatim, with what worked 
 See [EVALS.md](EVALS.md) — pass bar agreed in advance, actual results, failures and fixes.
 
 ## 4. Working app
-**Link:** _fill in after deploying — see DEPLOY.md_
+**Link:** https://product-assignment-yql9-pi.vercel.app/
 
 ---
 
