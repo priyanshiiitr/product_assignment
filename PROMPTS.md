@@ -308,6 +308,29 @@ Note on timestamps: the harness did not expose exact clock times for each turn, 
 
 ---
 
+### [2026-09-17, message 25]
+
+> unning build in Washington, D.C., USA (East) – iad1
+> Build machine configuration: 2 cores, 8 GB
+> Cloning github.com/priyanshiiitr/product_assignment (Branch: main, Commit: dd94ec6)
+> Previous build caches not available.
+> Cloning completed: 364.000ms
+> Running "vercel build"
+> Vercel CLI 59.16.0
+> Installing dependencies...
+> npm error code EBADPLATFORM
+> npm error notsup Unsupported platform for @rolldown/binding-win32-x64-msvc@1.2.9: wanted {"os":"win32","cpu":"x64"} (current: {"os":"linux","cpu":"x64"})
+> npm error notsup Valid os:   win32
+> npm error notsup Actual os:  linux
+> npm error notsup Valid cpu:  x64
+> npm error notsup Actual cpu: x64
+> npm error A complete log of this run can be found in: /vercel/.npm/_logs/2026-09-17T08_30_57_395Z-debug-0.log
+> Error: Command "npm install" exited with 1
+
+**Outcome:** Pasted Vercel build failure log — didn't work on first deploy attempt. Root cause: a Windows-only native binding (`@rolldown/binding-win32-x64-msvc`) had been committed as a hard devDependency to fix a local npm bug on the Windows dev machine, which broke `npm install` on Vercel's Linux build machine. Fixed by moving it to `optionalDependencies` in package.json (matching how rolldown declares its own platform bindings) and regenerating package-lock.json. Verified build and all 56 tests still pass locally, then committed and pushed the fix.
+
+---
+
 ### [2026-09-17, message 10]
 
 > A

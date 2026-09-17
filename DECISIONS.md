@@ -90,6 +90,10 @@ Every significant decision made while building this, the options considered, and
 
 **Context:** Before running evals, the brief requires agreeing a pass bar in advance so we're not moving the goalposts after seeing results. User delegated this ("do what you seem fit").
 
+## Decision 6b: Vercel build failure and fix
+
+First Vercel deploy attempt failed with `npm error EBADPLATFORM` on `@rolldown/binding-win32-x64-msvc`. Cause: that package had been added as a plain devDependency (not optional) to fix an npm optional-dependency resolution bug on the local Windows machine (see the earlier note on Vitest/Vite install issues) — committing it that way meant every non-Windows machine, including Vercel's Linux build image, tried and failed to install a Windows-only native binary. Fixed by moving it into `optionalDependencies` in `app/package.json`, which is exactly how rolldown declares its own per-platform bindings, so npm skips it gracefully wherever the platform doesn't match instead of failing the whole install. Verified `npm run build` and all 56 tests still pass locally after the change, then pushed the fix.
+
 ## Decision 6a: Deployment couldn't be fully automated
 
 Git repo initialized and committed locally. No `gh`/`vercel`/`netlify` CLI was authenticated in this environment, and pushing to GitHub or deploying to Vercel requires the user's own login — not something that should be done without their explicit credentials. Everything short of that (repo structure, root-directory note for Vercel since docs live above `app/`, build verified working via `npm run build`) was prepared; the actual push/deploy steps are in DEPLOY.md for the user to run themselves.
