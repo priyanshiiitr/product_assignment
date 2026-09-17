@@ -90,6 +90,12 @@ Every significant decision made while building this, the options considered, and
 
 **Context:** Before running evals, the brief requires agreeing a pass bar in advance so we're not moving the goalposts after seeing results. User delegated this ("do what you seem fit").
 
+## Decision 6a: Deployment couldn't be fully automated
+
+Git repo initialized and committed locally. No `gh`/`vercel`/`netlify` CLI was authenticated in this environment, and pushing to GitHub or deploying to Vercel requires the user's own login — not something that should be done without their explicit credentials. Everything short of that (repo structure, root-directory note for Vercel since docs live above `app/`, build verified working via `npm run build`) was prepared; the actual push/deploy steps are in DEPLOY.md for the user to run themselves.
+
+---
+
 **Decision:** Detection hit rate ≥90% per planted habit (across many seeds of its dedicated persona), false-alarm rate ≤10% on the clean-trader persona (across many seeds). Chosen as a bar that's strict enough to mean something but tolerant of the genuine randomness in a seeded generator with realistic win/loss noise — a naive 100%/0% bar would likely just mean the thresholds were tuned to the sample data rather than to real behavior.
 
 ---

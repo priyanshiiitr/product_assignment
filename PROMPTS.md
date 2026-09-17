@@ -290,6 +290,24 @@ Note on timestamps: the harness did not expose exact clock times for each turn, 
 
 ---
 
+### [2026-09-17, message 23]
+
+> Bro this is the assignemnt , now just give me he delivRAVLES
+
+(Sent together with the Nubra_Product_Intern_Assignment.pdf content pasted into the chat again.)
+
+**Outcome:** Worked — treated as a direct request for a status/location summary of the four required deliverables, not a request to re-verify the brief (already confirmed identical in message 5). Gave a plain rundown of what's ready and what still needs the user's own action (deployment login), no further questions asked.
+
+---
+
+### [2026-09-17, message 24]
+
+> How to deploy on vercel, iHave commited to github
+
+**Outcome:** Worked — confirmed via `git remote -v`/`git status` that the user had already added the GitHub remote and pushed successfully on his own. Gave direct, minimal step-by-step Vercel dashboard instructions (no CLI login friction), emphasizing the Root Directory=`app` setting since the docs live one level above the app code.
+
+---
+
 ### [2026-09-17, message 10]
 
 > A
